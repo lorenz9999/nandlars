@@ -1,0 +1,44 @@
+name: Deploy static site
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  deploy:
+    name: Upload to S3 and invalidate CloudFront
+    runs-on: ubuntu-latest
+    # Kept safe until Terraform outputs have been copied to GitHub variables.
+    if: ${{ vars.AWS_ROLE_TO_ASSUME && vars.AWS_REGION && vars.S3_BUCKET_NAME && vars.CLOUDFRONT_DISTRIBUTION_ID }}
+    env:
+      AWS_REGION: ${{ vars.AWS_REGION }}
+      S3_BUCKET_NAME: ${{ vars.S3_BUCKET_NAME }}
+      CLOUDFRONT_DISTRIBUTION_ID: ${{ vars.CLOUDFRONT_DISTRIBUTION_ID }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials via OIDC
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_ROLE_TO_ASSUME }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Upload site files
+        run: |
+          aws s3 sync . "s3://${S3_BUCKET_NAME}" \
+            --delete \
+            --exclude ".git/*" \
+            --exclude ".github/*" \
+            --exclude "infrastructure/*" \
+            --exclude "deploy/*" \
+            --exclude ".gitignore" \
+            --exclude "README.md" \
+            --cache-control "public, max-age=300"
+
+      - name: Invalidate CloudFront cache
+        run: aws cloudfront create-invalidation --distribution-id "$CLOUDFRONT_DISTRIBUTION_ID" --paths "/*"

@@ -1,0 +1,6 @@
+# Required: the GitHub repository permitted to deploy from its main branch.
+github_repository = "OWNER/nandlars"
+
+# Optional. Change only if a different AWS region or naming prefix is desired.
+aws_region         = "eu-central-1"
+bucket_name_prefix = "nandlars-site"
