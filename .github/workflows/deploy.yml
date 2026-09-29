@@ -1,5 +1,4 @@
 name: Deploy static site 
-
 on:
   push:
     branches: [main]
