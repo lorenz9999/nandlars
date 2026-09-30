@@ -9,3 +9,32 @@
 .about-section { padding-top:8rem; padding-bottom:5rem; }.about-section h2 { max-width:950px; margin-bottom:4rem; }.about-bottom { display:flex; justify-content:space-between; align-items:end; gap:3rem; padding-top:1.5rem; border-top:1px solid var(--line); }.about-bottom p { max-width:440px; font-size:.9rem; }.button-link { padding:.85rem 1.1rem; background:var(--acid); font-size:.76rem; font-weight:700; }.button-link:hover { background:var(--rust); color:white; }.site-footer { padding:2rem max(2rem, calc((100vw - 1440px)/2 + 2rem)); display:flex; align-items:center; justify-content:space-between; gap:2rem; background:var(--ink); color:var(--paper); }.site-footer p,.site-footer a:not(.wordmark) { margin:0; font-size:.7rem; }.site-footer a:not(.wordmark):hover { color:var(--acid); }
 .archive,.legal { min-height:calc(100vh - 94px); padding-top:8rem; padding-bottom:8rem; }.archive h1,.legal h1 { font-size:clamp(4rem,8vw,8rem); }.archive-intro,.legal-note { max-width:530px; font-size:1.1rem; }.archive-list { margin-top:7rem; max-width:880px; border-top:1px solid var(--line); }.archive-list section { display:grid; grid-template-columns:1fr 2fr; align-items:baseline; padding:1.2rem 0; border-bottom:1px solid var(--line); }.archive-list h2 { margin:0; font-size:2.5rem; }.archive-list p { margin:0; font-size:.85rem; }.legal { max-width:1100px; }.legal section { max-width:550px; padding-top:2rem; margin-top:3rem; border-top:1px solid var(--line); }.legal section h2 { font-size:2.5rem; margin:0 0 1rem; }.legal section p { font-size:.9rem; }
 @media (max-width:700px) { .site-header { width:calc(100% - 2.5rem); min-height:72px; }.main-nav { position:absolute; left:0; right:0; top:71px; display:none; padding:1.2rem 0 1.8rem; flex-direction:column; background:var(--paper); border-bottom:1px solid var(--line); }.menu-open .main-nav { display:flex; }.menu-toggle { display:flex; width:28px; height:28px; padding:5px 0; flex-direction:column; justify-content:center; gap:5px; border:0; background:none; cursor:pointer; }.menu-toggle span:not(.sr-only) { display:block; width:100%; height:1px; background:var(--ink); }.menu-open .menu-toggle span:nth-of-type(2) { transform:rotate(45deg) translate(2px,2px); }.menu-open .menu-toggle span:nth-of-type(3) { transform:rotate(-45deg) translate(2px,-2px); }.hero { min-height:calc(100vh - 72px); padding-top:5rem; }.hero h1 { font-size:clamp(3.8rem,17vw,6.3rem); }.hero-bottom { margin-top:5rem; align-items:start; flex-direction:column; }.shape-one { width:70vw; height:70vw; right:-25vw; top:25%; }.shape-two { width:34vw; height:34vw; right:5vw; bottom:2%; }.section-grid,.travel-section { grid-template-columns:1fr; }.section-intro { padding-right:0; }.music-card { margin-top:0; min-height:440px; }.culture-section,.photo-section,.about-section { padding-top:5rem; padding-bottom:5rem; }.section-heading { display:block; }.culture-grid { grid-template-columns:1fr; }.culture-item { min-height:290px; padding-right:0; }.culture-item-highlight { padding-left:0; border-left:0; }.culture-more { grid-column:auto; justify-self:start; }.photo-grid { grid-template-columns:1fr 1fr; gap:.8rem; margin-top:2.5rem; }.photo-a { grid-column:span 2; }.photo-a div { height:330px; }.photo-b div,.photo-c div { height:190px; }.travel-visual { min-height:390px; }.travel-copy { padding:5rem 2rem; }.about-bottom,.site-footer { align-items:start; flex-direction:column; gap:1.5rem; }.archive,.legal { padding-top:5rem; }.archive-list { margin-top:4rem; }.archive-list section { grid-template-columns:1fr; gap:.4rem; }.legal h1 { font-size:clamp(3.7rem,15vw,5.8rem); } }
+/* Reisegalerie */
+.photo img { display:block; width:100%; object-fit:cover; }
+.photo-a img { height:400px; }
+.photo-b img { height:285px; }
+.photo-c img { height:350px; }
+.gallery-page { min-height:calc(100vh - 94px); padding:7rem max(2rem, calc((100vw - 1440px)/2 + 2rem)) 8rem; }
+.gallery-intro { max-width:850px; }
+.gallery-intro h1 { max-width:900px; font-size:clamp(4rem,9vw,8rem); }
+.gallery-intro > p:last-child { max-width:480px; font-size:.9rem; }
+.norway-gallery { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.5rem; margin-top:4rem; }
+.norway-gallery figure { margin:0; }
+.gallery-photo { display:block; width:100%; padding:0; border:0; background:none; cursor:zoom-in; overflow:hidden; }
+.gallery-photo img { display:block; width:100%; aspect-ratio:3/4; object-fit:cover; transition:transform .25s ease; }
+.gallery-photo:hover img { transform:scale(1.025); }
+.norway-gallery figcaption { padding-top:.75rem; font:400 .63rem var(--mono); text-transform:uppercase; letter-spacing:.06em; }
+.gallery-back { margin-top:4rem; }
+.gallery-dialog { width:min(1000px,calc(100% - 2rem)); max-width:none; max-height:calc(100% - 2rem); padding:1rem; border:1px solid rgba(244,241,232,.25); background:var(--ink); color:var(--paper); }
+.gallery-dialog::backdrop { background:rgba(12,18,15,.9); }
+.gallery-dialog img { display:block; max-width:100%; max-height:78vh; margin:auto; object-fit:contain; }
+.gallery-dialog p { margin:.8rem 3rem 0; text-align:center; font:400 .7rem var(--mono); text-transform:uppercase; letter-spacing:.06em; }
+.gallery-dialog-close { position:absolute; top:.5rem; right:.75rem; border:0; background:none; color:var(--paper); font:400 2rem var(--sans); cursor:pointer; }
+@media (max-width:850px) { .norway-gallery { grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; } }
+@media (max-width:700px) {
+  .photo-a img { height:330px; }
+  .photo-b img,.photo-c img { height:190px; }
+  .gallery-page { padding-top:5rem; padding-bottom:5rem; }
+  .gallery-intro h1 { font-size:clamp(3.7rem,15vw,6rem); }
+}
+@media (max-width:560px) { .norway-gallery { grid-template-columns:1fr; gap:1.5rem; } }

@@ -22,7 +22,9 @@ data "aws_iam_policy_document" "github_actions_assume_role" {
     condition {
       test     = "StringEquals"
       variable = "token.actions.githubusercontent.com:sub"
-      values   = ["repo:${var.github_repository}:ref:refs/heads/main"]
+      values = [
+        "repo:lorenz9999@52448411/nandlars@1380490164:ref:refs/heads/main"
+      ]
     }
   }
 }
