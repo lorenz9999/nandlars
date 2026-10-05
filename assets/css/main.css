@@ -56,3 +56,16 @@
   .book-entry-content h2 { margin-top:2.5rem; }
   .book-entry-content blockquote { padding:1rem 1.1rem; font-size:1.3rem; }
 }
+
+/* Bandcamp music entry */
+.bandcamp-card { grid-column:2; align-self:start; background:#e8ded1; color:var(--ink); }
+.bandcamp-card h3 { margin:.9rem 0 1rem; font:400 clamp(2.3rem,4vw,4rem)/.93 var(--serif); }
+.bandcamp-card > p:not(.card-meta) { max-width:36rem; font-size:.88rem; }
+.bandcamp-tracklist { margin-top:1.2rem; font-size:.78rem; }
+.bandcamp-tracklist summary { width:fit-content; cursor:pointer; font-weight:700; }
+.bandcamp-tracklist ul { margin:.8rem 0 0; padding-left:1.2rem; columns:2; column-gap:2rem; font-size:.72rem; line-height:1.8; }
+.bandcamp-card .button-link { display:inline-block; margin-top:1.2rem; }
+@media (max-width:700px) {
+  .bandcamp-card { grid-column:1; }
+  .bandcamp-tracklist ul { columns:1; }
+}
