@@ -38,3 +38,21 @@
   .gallery-intro h1 { font-size:clamp(3.7rem,15vw,6rem); }
 }
 @media (max-width:560px) { .norway-gallery { grid-template-columns:1fr; gap:1.5rem; } }
+
+/* Long-form book entries */
+.culture-entry-link { margin-top:.5rem; white-space:normal; }
+.book-entry { max-width:1100px; }
+.book-entry-header { max-width:900px; margin-bottom:4rem; }
+.book-entry h1 { font-size:clamp(3.5rem,7vw,6.5rem); }
+.book-entry-byline { font-size:.8rem; }
+.book-entry-content { max-width:720px; }
+.book-entry-content h2 { margin:3rem 0 1.2rem; font-size:clamp(2rem,4vw,3rem); line-height:1; }
+.book-entry-content p,.book-entry-content li { font-size:clamp(.95rem,1.3vw,1.05rem); line-height:1.8; }
+.book-entry-content ul { padding-left:1.4rem; }
+.book-entry-content blockquote { margin:1.5rem 0; padding:1.25rem 1.5rem; border-left:2px solid var(--rust); background:#e8ded1; font:400 1.5rem/1.35 var(--serif); }
+.book-entry-content blockquote footer { margin-top:.75rem; font:400 .68rem var(--mono); letter-spacing:.06em; text-transform:uppercase; }
+@media (max-width:700px) {
+  .book-entry-header { margin-bottom:3rem; }
+  .book-entry-content h2 { margin-top:2.5rem; }
+  .book-entry-content blockquote { padding:1rem 1.1rem; font-size:1.3rem; }
+}
